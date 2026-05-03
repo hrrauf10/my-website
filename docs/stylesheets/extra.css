@@ -1,0 +1,245 @@
+/* ===== LIGHT THEME COLORS ===== */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0f172a;
+  --md-accent-fg-color: #0d9488;
+  --md-typeset-a-color: #0d9488;
+  --md-footer-bg-color: #0f172a;
+  --hr-accent: #0d9488;
+  --hr-accent-light: #ccfbf1;
+  --hr-accent-glow: rgba(13, 148, 136, 0.15);
+  --hr-card-bg: #f0fdfa;
+  --hr-card-border: #99f6e4;
+  --hr-gradient-start: #f0fdfa;
+  --hr-gradient-end: #ffffff;
+  --hr-heading-color: #0f172a;
+  --hr-text-muted: #64748b;
+  --hr-surface: #f8fafc;
+}
+
+/* ===== DARK THEME COLORS ===== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0f172a;
+  --md-default-bg-color: #0b1121;
+  --md-accent-fg-color: #2dd4bf;
+  --md-typeset-a-color: #2dd4bf;
+  --hr-accent: #2dd4bf;
+  --hr-accent-light: #134e4a;
+  --hr-accent-glow: rgba(45, 212, 191, 0.2);
+  --hr-card-bg: #0f1d2f;
+  --hr-card-border: #134e4a;
+  --hr-gradient-start: #0b1121;
+  --hr-gradient-end: #0f1d2f;
+  --hr-heading-color: #f1f5f9;
+  --hr-text-muted: #94a3b8;
+  --hr-surface: #111b2e;
+}
+
+/* ===== BUTTONS ===== */
+.md-button--primary {
+  background: linear-gradient(135deg, var(--hr-accent) 0%, #06b6d4 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 0.7rem 1.8rem !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px var(--hr-accent-glow) !important;
+}
+
+.md-button--primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px var(--hr-accent-glow) !important;
+  filter: brightness(1.1) !important;
+}
+
+[data-md-color-scheme="slate"] .md-button--primary {
+  color: #0f172a !important;
+}
+
+/* ===== HEADINGS WITH ACCENT ===== */
+.md-typeset h2 {
+  color: var(--hr-heading-color);
+  border-bottom: 2px solid var(--hr-accent);
+  padding-bottom: 0.4rem;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== GRID CARDS - COLORFUL BORDERS & HOVER ===== */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border: 1px solid var(--hr-card-border) !important;
+  border-left: 4px solid var(--hr-accent) !important;
+  background: var(--hr-card-bg) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--hr-accent-glow);
+  border-left-color: #06b6d4 !important;
+}
+
+/* Card icons - make them colorful */
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .emojione,
+.md-typeset .grid.cards svg {
+  fill: var(--hr-accent);
+}
+
+/* ===== ADMONITIONS - COLORED ===== */
+.md-typeset .admonition.abstract,
+.md-typeset details.abstract {
+  border-color: var(--hr-accent) !important;
+}
+
+.md-typeset .abstract > .admonition-title,
+.md-typeset .abstract > summary {
+  background-color: var(--hr-accent-light) !important;
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #06b6d4 !important;
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(6, 182, 212, 0.1) !important;
+  color: #06b6d4;
+}
+
+/* ===== INLINE CODE - TEAL TINT ===== */
+.md-typeset code {
+  background-color: var(--hr-accent-light) !important;
+  color: var(--hr-accent) !important;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.85em;
+}
+
+/* Keep code blocks normal */
+.md-typeset pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+
+/* ===== FOOTER ===== */
+.md-footer {
+  background: linear-gradient(180deg, #0b1121 0%, #0f172a 100%);
+}
+
+.md-footer-meta {
+  background-color: #0a0f1f;
+}
+
+/* Footer social links colored */
+.md-footer-meta .md-social__link svg {
+  fill: var(--hr-accent) !important;
+}
+
+/* ===== NAVIGATION TABS - ACCENT UNDERLINE ===== */
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--hr-accent) !important;
+}
+
+/* ===== METRIC CARDS ===== */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--hr-card-bg) 0%, var(--hr-surface) 100%);
+  border: 1px solid var(--hr-card-border);
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--hr-accent-glow);
+}
+
+.metric-card .metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--hr-accent) 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  line-height: 1.2;
+}
+
+.metric-card .metric-label {
+  font-size: 0.8rem;
+  color: var(--hr-text-muted);
+  margin-top: 0.4rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+/* ===== TABLES - COLORED HEADER ===== */
+.md-typeset table:not([class]) thead {
+  background: linear-gradient(135deg, var(--hr-accent) 0%, #06b6d4 100%);
+}
+
+.md-typeset table:not([class]) thead th {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--hr-accent-glow);
+}
+
+/* ===== TESTIMONIAL CARDS ===== */
+.grid.cards.testimonials {
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.grid.cards.testimonials > * {
+  margin-top: 0 !important;
+}
+
+.grid.cards.testimonials p:nth-child(2) {
+  margin-top: -0.5rem;
+  color: var(--hr-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar-thumb {
+  background: var(--hr-accent) !important;
+  border-radius: 4px;
+}
+
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background: var(--hr-accent);
+  color: #ffffff;
+}
+
+/* ===== HORIZONTAL RULES ===== */
+.md-typeset hr {
+  border-color: var(--hr-card-border);
+}
+
+/* ===== SEARCH BAR ACCENT ===== */
+.md-search__input:focus {
+  border-color: var(--hr-accent);
+  box-shadow: 0 0 0 3px var(--hr-accent-glow);
+}

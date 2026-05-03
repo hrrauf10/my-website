@@ -1,0 +1,102 @@
+site_name: Rimsha Rauf | AI Systems for Marketplaces
+site_description: I build production AI systems for online marketplaces — lead scoring, listing content generation, pricing intelligence, and call intelligence.
+site_url: https://yourdomain.com
+
+nav:
+  - Home:
+    - About: index.md
+  - Projects:
+    - Overview: portfolio/index.md
+    - portfolio/projects/project-1.md
+    - portfolio/projects/project-2.md
+    - portfolio/projects/project-3.md
+  - Blog:
+    - blog/index.md
+
+theme:
+  name: material
+  features:
+    - search.suggest
+    - toc.integrate
+    - navigation.tabs
+    - navigation.expand
+    - navigation.sections
+    - navigation.instant
+    - navigation.instant.prefetch
+    - content.tooltips
+    - content.tabs.link
+    - content.code.copy
+    - navigation.footer
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: custom
+      accent: custom
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: custom
+      accent: custom
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/brain
+  favicon: assets/favicon.png
+
+extra:
+  generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com
+  analytics:
+    # provider: google
+    # property: G-XXXXXXXXXX
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/hero.css
+plugins:
+  - search
+  # - social:
+  #     cards_layout_options:
+  #       background_color: "#0f172a"
+  - blog:
+      blog_dir: blog
+      authors_file: "{blog}/.authors.yml"
+      categories: true
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.keys
+  - tables
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js
+
+extra_files:
+  - docs/robots.txt
+
+copyright: |
+  &copy; 2025 Rimsha Rauf. All rights reserved.

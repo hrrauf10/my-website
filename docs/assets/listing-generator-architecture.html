@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Listing Generator – System Architecture</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f8fafc; font-family: 'Segoe UI', system-ui, sans-serif; padding: 16px; }
+
+  .diagram { display: flex; flex-direction: column; gap: 12px; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; margin-bottom: 4px; padding: 0 4px;
+  }
+
+  .lane {
+    border-radius: 10px; padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .lane-gen   { background: #eff6ff; border: 1.5px dashed #93c5fd; }
+  .lane-eval  { background: #f0fdf4; border: 1.5px dashed #86efac; }
+  .lane-infra { background: #fff7ed; border: 1.5px dashed #fdba74; }
+
+  .lane-gen   .section-label { color: #1d4ed8; }
+  .lane-eval  .section-label { color: #15803d; }
+  .lane-infra .section-label { color: #c2410c; }
+
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+
+  .box {
+    border-radius: 8px; padding: 8px 12px; font-size: 12px; line-height: 1.35;
+    text-align: center; min-width: 120px; max-width: 148px;
+    font-weight: 500; color: #1e293b; flex-shrink: 0;
+  }
+  .box-gen    { background: #bfdbfe; border: 2px solid #1d4ed8; }
+  .box-eval   { background: #bbf7d0; border: 2px solid #15803d; }
+  .box-infra  { background: #fed7aa; border: 2px solid #c2410c; }
+  .box-out    { background: #dbeafe; border: 2px solid #1d4ed8; }
+  .box-lang   { background: #e9d5ff; border: 2px solid #7c3aed; color: #4c1d95; }
+
+  .arrow {
+    width: 28px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #64748b; font-size: 16px; font-weight: bold;
+  }
+  .arrow-purple { color: #7c3aed; }
+  .arrow-wide   { width: 40px; }
+
+  .sub-row {
+    display: flex; align-items: flex-start; padding-left: 76px; gap: 0; margin-top: -4px;
+  }
+
+  .langfuse-col {
+    display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
+  }
+  .v-arrow { font-size: 16px; color: #7c3aed; line-height: 1; }
+
+  .loop-note {
+    font-size: 10.5px; color: #64748b; font-style: italic;
+    border-top: 1.5px dashed #94a3b8; padding-top: 6px; margin-top: 4px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="diagram">
+
+  <!-- GENERATION PIPELINE -->
+  <div class="lane lane-gen">
+    <div class="section-label">⚙ Generation Pipeline</div>
+    <div class="flow">
+      <div class="box box-gen">Listing Service<br><small>(GraphQL API)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-gen">Data Loader<br><small>&amp; Field Filter</small></div>
+      <div class="arrow">→</div>
+      <div class="langfuse-col">
+        <div class="box box-gen">Prompt Builder<br><small>(YAML Config)</small></div>
+        <div class="v-arrow">↓</div>
+        <div class="box box-lang">Langfuse<br><small>(Trace Logging)</small></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box box-gen">AWS Bedrock<br><small>invoke_model()</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-gen">Pydantic AI<br><small>Validated Schema</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-out">Generated<br>Description</div>
+    </div>
+    <div class="loop-note">↩ AI output is logged to Datadog → feeds Evaluation Pipeline</div>
+  </div>
+
+  <!-- EVALUATION PIPELINE -->
+  <div class="lane lane-eval">
+    <div class="section-label">📊 Evaluation Pipeline</div>
+    <div class="flow">
+      <div class="box box-eval">Datadog Logs<br><small>(gen events)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-eval">Log Fetcher<br><small>&amp; Matcher</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-eval">Cosine Similarity<br><small>(semantic score)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-eval">LLM Judge<br><small>(Claude Sonnet)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-eval">Adoption Score<br><small>(0 – 100)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-eval">Streamlit<br>Dashboard</div>
+    </div>
+  </div>
+
+  <!-- INFRASTRUCTURE -->
+  <div class="lane lane-infra">
+    <div class="section-label">🏗 Infrastructure</div>
+    <div class="flow">
+      <div class="box box-infra">Docker Image</div>
+      <div class="arrow">→</div>
+      <div class="box box-infra">AWS ECR<br><small>(Container Registry)</small></div>
+      <div class="arrow arrow-wide">→</div>
+      <div class="box box-infra">Route 53<br><small>(DNS / Publish)</small></div>
+      <div class="arrow">→</div>
+      <div class="box box-infra">SSO<br><small>(Access Control)</small></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
