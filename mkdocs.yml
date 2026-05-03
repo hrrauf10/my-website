@@ -40,7 +40,7 @@ theme:
       primary: custom
       accent: custom
   font:
-    text: Montserrat
+    text: Inter
     code: JetBrains Mono
   logo: assets/logo.png
   favicon: assets/favicon.png

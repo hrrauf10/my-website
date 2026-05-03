@@ -45,9 +45,11 @@ author: Rimsha Rauf
 
 ## The problem I solve
 
-Online marketplaces generate enormous amounts of data — leads, listings, calls, pricing history — but most of it goes unused. Teams work from gut instinct. Listings go live with no descriptions. Price drops happen too late. Call insights are never captured.
+Most businesses have already invested in AI — a lead scoring model, an LLM pipeline, an automated workflow. But the model gets ignored because nobody trusts it. The pipeline produces inconsistent output. The automation fires at the wrong time. Nobody measured whether any of it actually works.
 
-I build the AI layer that makes that data work: systems that score, generate, predict, and extract — and that run in production without breaking.
+I find where your AI or sales process is leaking revenue, build the scoring and automation layer that plugs it, and validate it's working before I hand it over. That means lead scoring models your team actually relies on, personalised outreach that triggers at the right moment, and segmentation that makes your data actionable — not just present.
+
+If you haven't built anything yet, I help you figure out what's worth building first.
 
 ## What I build
 
@@ -93,11 +95,13 @@ I build the AI layer that makes that data work: systems that score, generate, pr
 
 ## About me
 
-I'm Rimsha, an AI engineer who has spent the last few years building production ML systems at a large European online marketplace. I've built the same kinds of systems that marketplace businesses need: lead scoring, listing content generation, pricing classification, and call intelligence — all running at scale, across multiple markets and languages.
+I'm Rimsha — an AI engineer who spent several years building production ML systems inside a large European online marketplace.
 
-My work spans the full stack: data pipelines on AWS, fine-tuned transformer models, LLM-powered generation with real evaluation frameworks, and speech-to-insight pipelines. Every system I build ships to production with monitoring, CI/CD, and measurable outcomes — not just a working demo.
+I've been in the room where business problems get defined. I work across the full cycle: understand the problem, scope what's worth building, design the right system, build it, evaluate whether it's actually working, and iterate until it is. Not just delivery — the whole thing.
 
-I now take on focused projects for marketplace and platform businesses that want to move from "we have the data" to "the data is making decisions for us."
+I've built lead scoring, customer segmentation, listing content generation, pricing classification, automated communications, and call intelligence — all in production, across multiple markets and languages. I deliver fast, I scope tightly, and I'm honest about what's feasible before a line of code gets written.
+
+I now work with marketplaces, SaaS companies, real estate platforms, and B2B sales teams that want AI that actually moves their numbers.
 
 ## How an engagement works
 
@@ -190,6 +194,6 @@ Real-world data rarely is. Data cleaning and pipeline work is part of what I do,
 
   Tell me what you're working on. If I can help, I'll say how. If I can't, I'll say that too.
 
-  [Get in Touch :material-arrow-top-right:](mailto:your@email.com){ .md-button .md-button--primary }
+  [Book a Free Call :material-arrow-top-right:](https://cal.com/rimsha-rauf/introduction-call){ .md-button .md-button--primary }
 
 </div>
