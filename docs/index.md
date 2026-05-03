@@ -21,17 +21,15 @@ author: Rimsha Rauf
 
 # AI systems that turn your marketplace data into automated decisions
 
-### AI Engineer specialising in Online Marketplaces
+### AI Engineer — Lead Scoring, Segmentation & Automated Outreach
 
-- Scoring leads so your team knows exactly who to contact first
+- Your best leads are already in your data — most teams just can't see them yet
 
-- Generating listing descriptions that get published, not rewritten
+- I build the AI that scores, segments, and follows up automatically
 
-- Predicting when a listing needs a price change before it goes stale
+- Production-ready, properly evaluated, fast to deliver
 
-- Extracting structured insights from every sales call, automatically
-
-[See What I've Built :material-arrow-top-right:](portfolio/){ .md-button .md-button--primary }
+[Book a Free Call :material-arrow-top-right:](https://cal.com/rimsha-rauf/introduction-call){ .md-button .md-button--primary }
 
 </div>
 
@@ -59,37 +57,25 @@ If you haven't built anything yet, I help you figure out what's worth building f
 
   ***
 
-  ML models that assign a score to every inbound lead based on intent signals, behaviour, and listing interaction — so your team prioritises the leads that convert, not the ones that don't.
+  ML models that score every inbound lead by conversion likelihood — based on intent signals, behaviour, and interaction history. Your team stops guessing and starts prioritising.
 
-- :material-text-box-edit:{ .lg .middle } **Listing Content Generation**
-
-  ***
-
-  LLM pipelines that write complete, market-appropriate listing descriptions from structured data. Built with locale-aware prompts, seller adoption tracking, and real-world evaluation — not just text that looks good in a demo.
-
-- :material-tag-check:{ .lg .middle } **Pricing Intelligence**
+- :material-account-group:{ .lg .middle } **Customer Segmentation**
 
   ***
 
-  Classification and prediction systems that flag misleading or conditional prices, and predict when an active listing needs a price adjustment — based on days-on-market, comparable activity, and listing signals.
+  Clustering systems that group customers by behaviour, value, and intent — so your messaging and sales effort targets the right people instead of everyone equally.
+
+- :material-email-fast-outline:{ .lg .middle } **Automated Outreach**
+
+  ***
+
+  LLM-powered email and SMS pipelines that trigger personalised follow-ups based on lead score, segment, or sales stage — the right message at the right time, without manual effort.
 
 - :material-phone-in-talk:{ .lg .middle } **Call Intelligence**
 
   ***
 
-  Sales calls are your richest intent signal — and most businesses throw that data away. I extract who was interested, what was said, and what was promised, then feed it back into your lead scoring and follow-up automation so every call makes the next action smarter.
-
-- :material-brain:{ .lg .middle } **Intent Classification**
-
-  ***
-
-  Systems that classify buyer and seller intent from text, calls, and behavioural signals — feeding downstream automation like routing, prioritisation, and follow-up triggers.
-
-- :material-robot:{ .lg .middle } **RAG & AI Assistants**
-
-  ***
-
-  Retrieval-augmented systems that let your team query your own listing data, call history, or knowledge base in plain language — grounded answers, no hallucination.
+  Sales calls are your richest intent signal. I extract who was interested, what was said, and what was promised — and feed it back into your lead scoring and follow-up loop automatically.
 
 </div>
 
