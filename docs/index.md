@@ -77,7 +77,7 @@ If you haven't built anything yet, I help you figure out what's worth building f
 
   ***
 
-  End-to-end speech pipeline that transcribes sales calls, attributes speakers, extracts action items, and delivers structured summaries in under 60 seconds — directly to WhatsApp or your CRM.
+  Sales calls are your richest intent signal — and most businesses throw that data away. I extract who was interested, what was said, and what was promised, then feed it back into your lead scoring and follow-up automation so every call makes the next action smarter.
 
 - :material-brain:{ .lg .middle } **Intent Classification**
 
