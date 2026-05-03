@@ -137,13 +137,13 @@ I now take on focused projects for marketplace and platform businesses that want
 
   ***
 
-  PyTorch, HuggingFace Transformers, DeBERTa, mDeBERTa, Whisper, SpeechBrain, scikit-learn, DeepEval
+  PyTorch, HuggingFace Transformers, scikit-learn, SpeechBrain, DeepEval
 
 - :material-robot:{ .lg .middle } LLMs & Agents
 
   ***
 
-  Claude (Haiku/Sonnet), LangChain, LangGraph, AWS Bedrock, RAG, Prompt Engineering
+  Claude, OpenAI, LangChain, LangGraph, AWS Bedrock, RAG, Prompt Engineering
 
 - :material-cloud:{ .lg .middle } Cloud & Infrastructure
 
