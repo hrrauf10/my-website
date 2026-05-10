@@ -1,0 +1,1294 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fine-tuned transformer classifier that automatically flags conditional and misleading prices in marketplace listings — 20x faster and 5x cheaper than LLMs, across 5 markets and 6 languages.">
+      
+      
+      
+        <link rel="canonical" href="https://rrauf.com/portfolio/projects/project-1/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../project-2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Pricing Intelligence: Detecting Misleading Listing Prices Across 5 Markets - Rimsha Rauf | AI Systems for Marketplaces</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/hero.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pricing-intelligence-detecting-misleading-listing-prices-across-5-markets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Rimsha Rauf | AI Systems for Marketplaces" class="md-header__button md-logo" aria-label="Rimsha Rauf | AI Systems for Marketplaces" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rimsha Rauf | AI Systems for Marketplaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pricing Intelligence: Detecting Misleading Listing Prices Across 5 Markets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rimsha Rauf | AI Systems for Marketplaces" class="md-nav__button md-logo" aria-label="Rimsha Rauf | AI Systems for Marketplaces" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Rimsha Rauf | AI Systems for Marketplaces
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing Intelligence: Detecting Misleading Listing Prices Across 5 Markets
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing Intelligence: Detecting Misleading Listing Prices Across 5 Markets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Approach
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-head-transformer-encoder-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual-Head Transformer Encoder Fine-Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-aware-model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language-Aware Model Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-inference-transformers-llm-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Inference: Transformers + LLM Fallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-evaluation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Evaluation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fine-tuning-under-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine-Tuning Under Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-in-house-over-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why In-House Over Claude?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why In-House Over Claude?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inference-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inference Speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Listing Description Generator: AI Content That Sellers Actually Keep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Call Intelligence Pipeline: From Sales Call to Structured Summary in 60 Seconds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pricing-intelligence-detecting-misleading-listing-prices-across-5-markets">Pricing Intelligence: Detecting Misleading Listing Prices Across 5 Markets</h1>
+<div class="admonition tip">
+<p class="admonition-title">Marketplace Application</p>
+</div>
+<p>Online marketplaces routinely receive listings where the advertised price is misleading — tied to financing deals, leasing conditions, or VAT exclusions that most buyers don't qualify for. This system automatically detects those listings at scale, protecting buyer trust and flagging them for review before they go live. Applicable to any marketplace where price transparency matters: automotive, property, rental, B2B, or e-commerce.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Project Summary</p>
+</div>
+<p><strong>Domain</strong>: Online Marketplace / Pricing Transparency
+<strong>Role</strong>: ML Engineer (sole data scientist)
+<strong>Scope</strong>: 5 markets, 6 languages, production API + batch pipeline</p>
+<div class="metric-grid">
+<div class="metric-card">
+<span class="metric-value">20x</span>
+<span class="metric-label">Faster than Claude</span>
+</div>
+<div class="metric-card">
+<span class="metric-value">&gt;2x</span>
+<span class="metric-label">Cheaper at Scale</span>
+</div>
+<div class="metric-card">
+<span class="metric-value">90–95%</span>
+<span class="metric-label">Detection Rate</span>
+</div>
+<div class="metric-card">
+<span class="metric-value">5</span>
+<span class="metric-label">Markets, 6 Languages</span>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Key Result: In-house model is 20x faster and &gt;2x cheaper than Claude while maintaining comparable detection performance</p>
+</div>
+<h2 id="the-problem">The Problem</h2>
+<p>In online marketplaces, some listings advertise prices that come with conditions - financing requirements, leasing terms, special buyer restrictions, or VAT exclusions. These conditional prices are misleading for standard buyers who expect transparent pricing. Manually reviewing thousands of listings across multiple markets and languages was unsustainable.</p>
+<p><strong>The goal</strong>: Build an automated system that flags conditional pricing across 5 international markets with high accuracy and low latency.</p>
+<h2 id="model-architecture">Model Architecture</h2>
+<style>
+.ma-wrap{font-family:'Segoe UI',system-ui,sans-serif;margin:1rem 0}
+.ma-note{background:#fefce8;border:1.5px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#713f12;margin-bottom:14px}
+.ma-flow{display:flex;align-items:center;flex-wrap:wrap;gap:0}
+.ma-box{border-radius:8px;padding:10px 14px;font-size:12px;line-height:1.4;text-align:center;font-weight:500;color:#1e293b;flex-shrink:0}
+.ma-plain{background:#f1f5f9;border:2px solid #94a3b8;min-width:120px}
+.ma-trim{background:#fce7f3;border:2px solid #db2777;min-width:130px}
+.ma-model{background:#dbeafe;border:2px solid #1d4ed8;min-width:150px}
+.ma-bin{background:#dcfce7;border:2px solid #16a34a;min-width:140px}
+.ma-multi{background:#fef9c3;border:2px solid #ca8a04;min-width:140px}
+.ma-arrow{width:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#64748b;font-size:18px;font-weight:bold}
+.ma-split{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.ma-why{background:#f0f9ff;border:1.5px solid #7dd3fc;border-radius:8px;padding:10px 14px;font-size:12px;margin-top:12px;color:#0c4a6e}
+.ma-why strong{display:block;margin-bottom:4px;font-size:12.5px}
+.ma-tag{display:inline-block;background:#fef08a;border-radius:4px;padding:1px 5px;font-size:11px;font-weight:700;color:#713f12;margin-top:2px}
+</style>
+
+<div class="ma-wrap">
+  <div class="ma-note">🧠 Encoders learn contextual word meaning with a tiny memory footprint — enabling <strong>quick iteration and faster fine-tuning</strong> on a single 24 GB GPU</div>
+  <div class="ma-flow">
+    <div class="ma-box ma-plain">Listing<br>Description</div>
+    <div class="ma-arrow">→</div>
+    <div class="ma-box ma-trim">✂ Trimmer<br><small>Extracts sentences with<br><span class="ma-tag">pricing-relevant</span> keywords</small></div>
+    <div class="ma-arrow">→</div>
+    <div class="ma-split" style="gap:8px">
+      <div class="ma-box ma-model">🤖 mDeBERTa-v3-base<br><small>Encoder · 12 Layers<br><span class="ma-tag">86M Parameters</span> <span class="ma-tag">Multilingual</span><br>Used for: DE</small></div>
+      <div class="ma-box ma-model">🤖 DeBERTa-v3-large<br><small>Encoder · 24 Layers<br><span class="ma-tag">304M Parameters</span><br>Used for: IT, AT, CA, BE</small></div>
+    </div>
+    <div class="ma-arrow">→</div>
+    <div class="ma-split">
+      <div class="ma-box ma-bin">🔲 Binary Classifier<br><small><span class="ma-tag">Conditional</span><br>Non-Conditional</small></div>
+      <div class="ma-box ma-multi">⊞ Multi Classifier<br><small><span class="ma-tag">Financing</span> · Incentives<br>Leasing · SpecialBuyers · Others</small></div>
+    </div>
+  </div>
+  <div class="ma-why">
+    <strong>💡 Why Two Heads?</strong>
+    Fine-tuning both tasks simultaneously forces the encoder to learn richer shared representations — the binary signal sharpens category boundaries, and the category signal anchors binary decisions. Single-task models for each head performed worse individually than this joint approach.
+  </div>
+</div>
+
+<h2 id="my-approach">My Approach</h2>
+<h3 id="dual-head-transformer-encoder-fine-tuning">Dual-Head Transformer Encoder Fine-Tuning</h3>
+<p>Rather than fine-tuning two separate models, I designed a <strong>single dual-head classifier</strong> that learns both tasks simultaneously in one forward pass:</p>
+<ul>
+<li><strong>Binary head</strong>: Conditional vs. Non-Conditional — detects whether the advertised price is achievable by a standard buyer</li>
+<li><strong>Multi-label head</strong>: 7 condition categories — Financing, Leasing, Incentives, Special Buyers, VAT Excluded, Other, OK</li>
+</ul>
+<p>Joint fine-tuning improved accuracy on both tasks: the binary signal sharpens category boundaries, and the category signal anchors the binary decision. One model, two outputs, better performance than either standalone.</p>
+<h3 id="language-aware-model-selection">Language-Aware Model Selection</h3>
+<p>Rather than forcing a single model across all markets, I selected architecturally appropriate models:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Markets</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DeBERTa V3 Large</strong></td>
+<td>IT, AT, CA, BE</td>
+<td>Superior performance on English-centric and Romance language text</td>
+</tr>
+<tr>
+<td><strong>mDeBERTa V3 Base</strong></td>
+<td>DE</td>
+<td>Better multilingual representations for German compound words and syntax</td>
+</tr>
+</tbody>
+</table>
+<h3 id="feature-engineering">Feature Engineering</h3>
+<ul>
+<li><strong>Country-specific keyword extraction</strong>: 70–71 priority stems per market to extract pricing-relevant sentences before feeding into the model</li>
+</ul>
+<h3 id="hybrid-inference-transformers-llm-fallback">Hybrid Inference: Transformers + LLM Fallback</h3>
+<p>For predictions where the model confidence fell below 0.8, the system routes to <strong>Claude via AWS Bedrock</strong> for validation.</p>
+<style>
+.inf-wrap{font-family:'Segoe UI',system-ui,sans-serif;margin:1rem 0}
+.inf-row{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-bottom:6px}
+.inf-box{border-radius:8px;padding:8px 14px;font-size:12px;font-weight:500;text-align:center;color:#1e293b;flex-shrink:0}
+.inf-blue{background:#bfdbfe;border:2px solid #1d4ed8;min-width:130px}
+.inf-green{background:#dcfce7;border:2px solid #16a34a;min-width:130px}
+.inf-purple{background:#e9d5ff;border:2px solid #7c3aed;min-width:130px}
+.inf-arrow{width:26px;flex-shrink:0;text-align:center;color:#64748b;font-size:16px;font-weight:bold}
+.inf-branch{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.inf-label{font-size:11px;color:#64748b;padding:2px 6px;background:#f1f5f9;border-radius:4px;margin-right:4px;font-weight:600}
+</style>
+
+<div class="inf-wrap">
+  <div class="inf-row">
+    <div class="inf-box inf-blue">Listing</div>
+    <div class="inf-arrow">→</div>
+    <div class="inf-box inf-blue">Transformer<br>Inference</div>
+    <div class="inf-arrow">→</div>
+    <div class="inf-box inf-blue">Confidence<br>Check</div>
+    <div class="inf-arrow">→</div>
+    <div class="inf-branch">
+      <div class="inf-row" style="margin:0"><span class="inf-label">≥ 0.8</span><div class="inf-box inf-green">Return Prediction<br><small>(sub-second)</small></div></div>
+      <div class="inf-row" style="margin:0"><span class="inf-label">&lt; 0.8</span><div class="inf-box inf-purple">Claude Validation<br><small>(+2–5s)</small></div><div class="inf-arrow">→</div><div class="inf-box inf-green">Return Prediction</div></div>
+    </div>
+  </div>
+</div>
+
+<p>This hybrid approach optimises for speed on high-confidence predictions while using LLM reasoning only for genuinely ambiguous edge cases.</p>
+<h3 id="automated-evaluation-pipeline">Automated Evaluation Pipeline</h3>
+<p>I built a stratified validation system using Claude as ground truth:</p>
+<ol>
+<li>Sample 250 listings per country (stratified by predicted class)</li>
+<li>Generate Claude labels with structured reasoning</li>
+<li>Evaluate transformer predictions against Claude ground truth</li>
+<li>Track per-country precision/recall over time</li>
+</ol>
+<h2 id="production-system">Production System</h2>
+<h3 id="deployment-pipeline">Deployment Pipeline</h3>
+<style>
+.dp-wrap{font-family:'Segoe UI',system-ui,sans-serif;margin:1rem 0}
+.dp-lane{border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.dp-lane-ci{background:#f0fdf4;border:1.5px dashed #86efac}
+.dp-lane-aws{background:#fff7ed;border:1.5px dashed #fdba74}
+.dp-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.dp-label-ci{color:#15803d}
+.dp-label-aws{color:#c2410c}
+.dp-flow{display:flex;align-items:center;flex-wrap:wrap;gap:0}
+.dp-box{border-radius:8px;padding:8px 12px;font-size:12px;line-height:1.35;text-align:center;font-weight:500;color:#1e293b;flex-shrink:0;min-width:115px}
+.dp-ci{background:#bbf7d0;border:2px solid #15803d}
+.dp-aws{background:#fed7aa;border:2px solid #c2410c}
+.dp-arrow{width:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#64748b;font-size:16px;font-weight:bold}
+</style>
+
+<div class="dp-wrap">
+  <div class="dp-lane dp-lane-ci">
+    <div class="dp-label dp-label-ci">🔁 CI/CD Pipeline</div>
+    <div class="dp-flow">
+      <div class="dp-box dp-ci">FastAPI App<br><small>(classifier service)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-ci">Docker Image<br><small>(containerised)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-ci">GitHub Actions<br><small>(build &amp; push)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-ci">AWS ECR<br><small>(container registry)</small></div>
+    </div>
+  </div>
+  <div class="dp-lane dp-lane-aws">
+    <div class="dp-label dp-label-aws">☁ AWS Infrastructure (CloudFormation)</div>
+    <div class="dp-flow">
+      <div class="dp-box dp-aws">ECR Image<br><small>(pulled on deploy)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-aws">CloudFormation<br><small>(stack launch)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-aws">Auto Scaling<br>Group<br><small>(EC2 GPU)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-aws">Target Group<br><small>(load balancer)</small></div>
+      <div class="dp-arrow">→</div>
+      <div class="dp-box dp-aws">Route 53<br><small>(DNS endpoint)</small></div>
+    </div>
+  </div>
+</div>
+
+<p><strong>Real-Time API</strong> (FastAPI):</p>
+<ul>
+<li>Accepts listing description, price, and country code</li>
+<li>Returns classification with confidence score in &lt;2s</li>
+<li>Falls back to Claude for uncertain predictions</li>
+<li>Includes business rule overrides (e.g., known leasing providers auto-flagged)</li>
+</ul>
+<p><strong>Monitoring</strong>: Full Datadog integration tracking prediction distributions, Claude API costs, conditional listing rates per market, and model latency.</p>
+<h2 id="fine-tuning-under-constraints">Fine-Tuning Under Constraints</h2>
+<p>Fine-tuning a 304M parameter transformer encoder on a single <strong>24 GB GPU</strong> required engineering around every memory bottleneck. Real constraints from the fine-tuning run:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24 GB VRAM</td>
+<td>Model + activations exceeded memory</td>
+<td>Gradient checkpointing — recompute activations on backward pass instead of storing them</td>
+</tr>
+<tr>
+<td>Max batch size 8</td>
+<td>Too noisy for stable convergence</td>
+<td>Gradient accumulation over 4 steps → effective batch of 64 without extra memory</td>
+</tr>
+<tr>
+<td>Long input sequences</td>
+<td>Full 512-token inputs too slow</td>
+<td>Input truncation to <strong>384 tokens</strong> — cut training time significantly with negligible accuracy loss</td>
+</tr>
+<tr>
+<td>FP32 precision</td>
+<td>Doubled memory for weights/activations</td>
+<td>FP16 mixed precision training throughout</td>
+</tr>
+<tr>
+<td>DeBERTa-v3-large size</td>
+<td>304M params barely fit</td>
+<td>Combined all four techniques together to make fine-tuning feasible on a single GPU</td>
+</tr>
+</tbody>
+</table>
+<p>The disentangled attention mechanism in DeBERTa encodes each token using separate content and position embeddings — this is what gives it strong contextual understanding with a relatively small parameter count compared to its performance.</p>
+<h2 id="tech-stack">Tech Stack</h2>
+<p><code>Python</code> <code>PyTorch</code> <code>HuggingFace Transformers</code> <code>DeBERTa V3</code> <code>mDeBERTa V3</code> <code>FastAPI</code> <code>AWS Bedrock</code> <code>Claude</code> <code>AWS Athena</code> <code>AWS S3</code> <code>AWS EC2 (GPU)</code> <code>Papermill</code> <code>Datadog</code> <code>Docker</code></p>
+<h2 id="why-in-house-over-claude">Why In-House Over Claude?</h2>
+<p>The core business case: fine-tuning a transformer model instead of routing everything through Claude delivered dramatic cost and speed gains at no meaningful accuracy cost.</p>
+<h3 id="detection-performance">Detection Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Detection Rate</th>
+<th>False Positive Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude</td>
+<td>99%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>Transformer Model</td>
+<td>90% – 95%</td>
+<td>4% – 7%</td>
+</tr>
+</tbody>
+</table>
+<p>A small accuracy trade-off in exchange for 20x faster inference and a cost curve that stays flat as volume scales.</p>
+<h3 id="inference-speed">Inference Speed</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Listings per Day</th>
+<th>Inference Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude</td>
+<td>60K</td>
+<td>2 – 3 hours</td>
+</tr>
+<tr>
+<td>Transformer Model</td>
+<td>60K</td>
+<td>~10 minutes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cost-at-scale">Cost at Scale</h3>
+<table>
+<thead>
+<tr>
+<th>Listings per Day</th>
+<th>GPU Cost p.a. (Transformer)</th>
+<th>Claude Cost p.a.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20K</td>
+<td>$14K</td>
+<td>$10K</td>
+</tr>
+<tr>
+<td>40K</td>
+<td>$14K</td>
+<td>$23K</td>
+</tr>
+<tr>
+<td>60K</td>
+<td>$14K</td>
+<td>$42K</td>
+</tr>
+<tr>
+<td>80K</td>
+<td>$14K</td>
+<td>$56K</td>
+</tr>
+<tr>
+<td>100K</td>
+<td>$14K</td>
+<td>$70K</td>
+</tr>
+</tbody>
+</table>
+<p>The transformer's GPU cost is <strong>fixed</strong> at $14K/year regardless of volume. Claude's cost scales linearly — at 100K listings/day the in-house model is <strong>5x cheaper</strong>.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Right-sizing models matters</strong>: DeBERTa vs mDeBERTa selection per market improved accuracy without unnecessary compute</li>
+<li><strong>Confidence-based routing</strong> between fast local models and LLMs is a production pattern I now use everywhere</li>
+<li><strong>Country-specific feature engineering</strong> (keyword stems, text extraction) outperformed language-agnostic approaches</li>
+<li><strong>Automated evaluation pipelines</strong> with LLM-as-judge provide scalable quality assurance across markets</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../project-2/" class="md-footer__link md-footer__link--next" aria-label="Next: Listing Description Generator: AI Content That Sellers Actually Keep">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Listing Description Generator: AI Content That Sellers Actually Keep
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 Rimsha Rauf. All rights reserved.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["search.suggest", "toc.integrate", "navigation.tabs", "navigation.expand", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "content.tooltips", "content.tabs.link", "content.code.copy", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+      
+    
+  </body>
+</html>

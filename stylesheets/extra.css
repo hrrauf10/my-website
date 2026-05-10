@@ -1,0 +1,273 @@
+/* ===== LIGHT THEME ===== */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:    #f6fafe;
+  --md-default-fg-color:    #11263c;
+  --md-typeset-color:       #11263c;
+  --md-typeset-a-color:     #1f6aa0;
+  --md-primary-fg-color:    #0e2238;
+  --md-accent-fg-color:     #4095c6;
+  --md-footer-bg-color:     #0e2238;
+  --hr-accent:              #4095c6;
+  --hr-accent-secondary:    #8fbfe8;
+  --hr-accent-light:        #d8ecfb;
+  --hr-accent-glow:         rgba(64, 149, 198, 0.15);
+  --hr-card-bg:             rgba(255, 255, 255, 0.85);
+  --hr-card-border:         rgba(22, 50, 79, 0.12);
+  --hr-heading-color:       #0e2238;
+  --hr-text-muted:          rgba(0, 0, 0, 0.54);
+  --hr-surface:             #f6fafe;
+}
+
+/* ===== DARK THEME ===== */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:    #08131f;
+  --md-default-fg-color:    #eaf3fb;
+  --md-typeset-color:       #eaf3fb;
+  --md-typeset-a-color:     #a9d3f5;
+  --md-primary-fg-color:    #0e2238;
+  --md-accent-fg-color:     #a9d3f5;
+  --md-footer-bg-color:     #08131f;
+  --hr-accent:              #a9d3f5;
+  --hr-accent-secondary:    #4095c6;
+  --hr-accent-light:        rgba(169, 211, 245, 0.12);
+  --hr-accent-glow:         rgba(169, 211, 245, 0.15);
+  --hr-card-bg:             rgba(17, 38, 60, 0.72);
+  --hr-card-border:         rgba(169, 211, 245, 0.12);
+  --hr-heading-color:       #eaf3fb;
+  --hr-text-muted:          rgba(234, 243, 251, 0.6);
+  --hr-surface:             #08131f;
+}
+
+/* ===== HEADER ===== */
+.md-header {
+  background: #0e2238;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.md-tabs {
+  background: #16324f;
+}
+
+/* ===== BUTTONS ===== */
+.md-button--primary {
+  background: #1f6aa0 !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 6px !important;
+  letter-spacing: 0.02em !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.md-button--primary:hover {
+  background: #16324f !important;
+  box-shadow: 0 4px 14px rgba(31, 106, 160, 0.3) !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.md-typeset h1 {
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--hr-heading-color);
+}
+
+.md-typeset h2 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--hr-heading-color);
+  border-bottom: 3px solid var(--hr-accent);
+  padding-bottom: 0.4rem;
+  display: inline-block;
+  margin-bottom: 1.4rem;
+}
+
+.md-typeset h3 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--hr-heading-color);
+}
+
+.md-typeset p {
+  line-height: 1.75;
+}
+
+/* ===== GRID CARDS ===== */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  background: var(--hr-card-bg) !important;
+  border: 1px solid var(--hr-card-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 18px 40px rgba(14, 34, 56, 0.08) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 24px 48px rgba(14, 34, 56, 0.14) !important;
+}
+
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .emojione,
+.md-typeset .grid.cards svg {
+  fill: var(--hr-accent);
+}
+
+/* ===== ADMONITIONS / FAQ ===== */
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: var(--hr-card-border) !important;
+  border-left-color: var(--hr-accent) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  background: var(--hr-card-bg) !important;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background-color: rgba(143, 191, 232, 0.12) !important;
+  font-weight: 600 !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* ===== INLINE CODE ===== */
+.md-typeset code {
+  background: rgba(143, 191, 232, 0.22) !important;
+  color: #0e2238 !important;
+  border-radius: 5px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.83em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background: rgba(169, 211, 245, 0.15) !important;
+  color: #a9d3f5 !important;
+}
+
+.md-typeset pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+
+/* ===== FOOTER ===== */
+.md-footer {
+  background: #0e2238;
+}
+
+.md-footer-meta {
+  background: #08131f;
+}
+
+.md-footer-meta .md-social__link svg {
+  fill: var(--hr-accent) !important;
+}
+
+/* ===== NAVIGATION TABS ===== */
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--hr-accent-secondary) !important;
+}
+
+/* ===== TABLES ===== */
+.md-typeset table:not([class]) thead {
+  background: #0e2238;
+}
+
+.md-typeset table:not([class]) thead th {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background: rgba(143, 191, 232, 0.1);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar-thumb {
+  background: rgba(64, 149, 198, 0.4) !important;
+  border-radius: 4px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--hr-accent);
+  color: #ffffff;
+}
+
+/* ===== HR ===== */
+.md-typeset hr {
+  border-color: var(--hr-card-border);
+}
+
+/* ===== SEARCH ===== */
+.md-search__input:focus {
+  border-color: var(--hr-accent);
+  box-shadow: 0 0 0 2px rgba(64, 149, 198, 0.2);
+}
+
+/* ===== INLINE CODE IN CARDS (tech badges) ===== */
+.md-typeset .grid.cards code {
+  background: rgba(143, 191, 232, 0.22) !important;
+  color: #0e2238 !important;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards code {
+  background: rgba(169, 211, 245, 0.15) !important;
+  color: #a9d3f5 !important;
+}
+
+/* ===== METRIC CARDS ===== */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  background: var(--hr-card-bg);
+  border: 1px solid var(--hr-card-border);
+  box-shadow: 0 8px 24px rgba(14, 34, 56, 0.08);
+}
+
+.metric-card .metric-value {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--hr-accent);
+  display: block;
+  line-height: 1.2;
+}
+
+.metric-card .metric-label {
+  font-size: 0.75rem;
+  color: var(--hr-text-muted);
+  margin-top: 0.4rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  opacity: 0.78;
+}
